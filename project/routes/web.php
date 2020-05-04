@@ -24,3 +24,11 @@ Route::post('/companies/create','CompaniesController@store')->name('companies.st
 Route::get('/companies/edit/{id}', 'CompaniesController@edit')->name('companies.edit');
 Route::post('/companies/update', 'CompaniesController@update')->name('companies.update');
 Route::get('/companies/delete/{id}', 'CompaniesController@destroy')->name('companies.destroy');
+
+
+Route::get('/certificates', 'CertificatesController@index')->name('certificates.index');
+Route::get('/certificates/create', 'CertificatesController@create');
+Route::post('/certificates/create','CertificatesController@store')->name('certificates.store');
+Route::get('/certificates/edit/{id}', 'CertificatesController@edit')->name('certificates.edit');
+Route::post('/certificates/update', 'CertificatesController@update')->name('certificates.update');
+Route::get('/certificates/delete/{id}', 'CertificatesController@destroy')->name('certificates.destroy');
