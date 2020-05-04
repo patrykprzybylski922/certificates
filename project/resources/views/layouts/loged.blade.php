@@ -47,10 +47,10 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                        <a href="{{ url('/companies') }}" class="nav-link">
+                            <i class="nav-icon fas fa-building"></i>
                             <p>
-                                Simple Link
+                                Companies
                             </p>
                         </a>
                     </li>
@@ -76,10 +76,7 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    @yield('content')
-                </div>
-                <!-- /.row -->
+                @yield('content')
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
@@ -103,7 +100,7 @@
 
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2020
+        <strong>Copyright &copy; 2020</strong>
     </footer>
 </div>
 <!-- ./wrapper -->
