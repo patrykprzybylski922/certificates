@@ -27,6 +27,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Expiration date</th>
                             <th style="width: 80px;">#</th>
                         </tr>
                         </thead>
@@ -34,6 +35,7 @@
                         @foreach ($certificates as $certificate)
                             <tr>
                                 <td>{{ $certificate->domain }}</td>
+                                <td>{{ $certificate->importance }}</td>
                                 <td >
                                     <a href="{{ url('certificates/edit/'.$certificate->id) }}"><i class="fa fa-edit"></i></a>
                                     <a class="ml-1" href="{{ url('certificates/delete/'.$certificate->id) }}"><i class="fa fa-trash"></i></a>
