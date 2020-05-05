@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="company">Company:</label>
                     <select class="form-control" name="company">
-                        @foreach(\App\Company::all() as $company)
+                        @foreach(\App\Models\Company::all() as $company)
                             <option value="{{ $company->id }}">{{ $company->name }}</option>
                         @endforeach
                     </select>
