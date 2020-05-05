@@ -45,7 +45,7 @@
                 <div class="form-group">
                     @if($certificate->image)
                         <p>Uploaded image:</p>
-                        <img class="img-fluid" src="{{asset('storage/pics/'.$certificate->image)}}">
+                        <img class="img-fluid" src="{{asset('storage/certs/'.$certificate->image)}}">
                     @endif
                 </div>
                 <input type="hidden" name="id" value = "{{$certificate->id}}">

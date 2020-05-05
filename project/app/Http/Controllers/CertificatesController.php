@@ -45,8 +45,8 @@ class CertificatesController extends Controller
                 $image = $request->image;
                 $ext = $image->getClientOriginalExtension();
                 $filename = uniqid().'.'.$ext;
-                $image->storeAs('public/pics',$filename);
-                Storage::delete("public/pics/{$certificate->image}");
+                $image->storeAs('public/certs',$filename);
+                Storage::delete("public/certs/{$certificate->image}");
                 $certificate->image = $filename;
             }
             $certificate->save();
@@ -84,8 +84,8 @@ class CertificatesController extends Controller
                 $image = $request->image;
                 $ext = $image->getClientOriginalExtension();
                 $filename = uniqid().'.'.$ext;
-                $image->storeAs('public/pics',$filename);
-                Storage::delete("public/pics/{$certificate->image}");
+                $image->storeAs('public/certs',$filename);
+                Storage::delete("public/certs/{$certificate->image}");
                 $certificate->image = $filename;
             }
             $certificate->save();
