@@ -22,7 +22,7 @@
                     <label for="company">Company:</label>
                     <select class="form-control" name="company">
                         @foreach(\App\Company::all() as $company)
-                            <option value="{{ $company->id }}">{{ $company->name }}</option>
+                            <option @if($company->id === $certificate->company_id) selected @endif value="{{ $company->id }}">{{ $company->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,9 +31,14 @@
                     <input type="text" name="domain" id="domain" class="form-control" required value="{{ $certificate->domain }}">
                 </div>
                 <div class="form-group">
-                    <label for="name">Importance:</label>
-                    <input type="text" name="importance" id="importance" class="form-control" required value="{{ $certificate->importance }}">
+                    <label for="name">Url:</label>
+                    <input type="text" name="url" id="url" class="form-control" required value="{{ $certificate->url }}">
                 </div>
+                <div class="form-group">
+                    <label for="name">Importance:</label>
+                    <input name="importance" id="importance" class="form-control date-picker" data-provide="datepicker"  value="{{ $certificate->importance }}">
+                </div>
+                <input type="hidden" name="id" value = "{{$certificate->id}}">
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>
         </div>

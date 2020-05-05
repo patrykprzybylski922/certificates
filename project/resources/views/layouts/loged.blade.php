@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 <div id="app" class="wrapper">
@@ -132,7 +131,13 @@
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script>
+    $('.date-picker').datepicker({
+        format: 'yyyy/mm/dd',
+        autoclose: true,
+        todayHighlight: true
+    });
+</script>
 </body>
 </html>

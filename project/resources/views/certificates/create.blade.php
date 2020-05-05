@@ -31,8 +31,12 @@
                     <input type="text" name="domain" id="domain" class="form-control" required>
                 </div>
                 <div class="form-group">
+                    <label for="name">Url:</label>
+                    <input type="text" name="url" id="url" class="form-control" required>
+                </div>
+                <div class="form-group">
                     <label for="name">Importance:</label>
-                    <input type="text" name="importance" id="importance" class="form-control" required>
+                    <input class="form-control date-picker" data-provide="datepicker" name="importance" id="importance">
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>
@@ -40,4 +44,7 @@
     </div>
 
 
+
 @endsection
+
+
