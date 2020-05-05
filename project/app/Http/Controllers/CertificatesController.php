@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class CertificatesController extends Controller
@@ -25,7 +26,8 @@ class CertificatesController extends Controller
         $validator  = Validator::make( $request->all(), [
             'domain' => 'required',
             'importance' => 'required',
-            'url' => 'required'
+            'url' => 'required',
+            'image' => 'nullable|image|max:1999', //formats: jpeg, png, bmp, gif, svg
         ]);
 
 
@@ -39,6 +41,14 @@ class CertificatesController extends Controller
             $certificate->domain = $request->input('domain');
             $certificate->url = $request->input('url');
             $certificate->importance = $request->input('importance');
+            if($request->hasFile('image')){
+                $image = $request->image;
+                $ext = $image->getClientOriginalExtension();
+                $filename = uniqid().'.'.$ext;
+                $image->storeAs('public/pics',$filename);
+                Storage::delete("public/pics/{$certificate->image}");
+                $certificate->image = $filename;
+            }
             $certificate->save();
             return redirect()->route('certificates.index')->with('success','Certificate added successfully');
         }
@@ -55,7 +65,8 @@ class CertificatesController extends Controller
         $validator  = Validator::make( $request->all(), [
             'domain' => 'required',
             'importance' => 'required',
-            'url' => 'required'
+            'url' => 'required',
+            'image' => 'nullable|image|max:1999', //formats: jpeg, png, bmp, gif, svg
         ]);
 
 
@@ -69,6 +80,14 @@ class CertificatesController extends Controller
             $certificate->domain = $request->input('domain');
             $certificate->url = $request->input('url');
             $certificate->importance = $request->input('importance');
+            if($request->hasFile('image')){
+                $image = $request->image;
+                $ext = $image->getClientOriginalExtension();
+                $filename = uniqid().'.'.$ext;
+                $image->storeAs('public/pics',$filename);
+                Storage::delete("public/pics/{$certificate->image}");
+                $certificate->image = $filename;
+            }
             $certificate->save();
             return redirect()->route('certificates.index')->with('success','Certificate updated successfully');
         }

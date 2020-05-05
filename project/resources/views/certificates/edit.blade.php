@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-sm-6 col-xs-12">
-            <form action="{{route('certificates.update')}}" method = "post">
+            <form action="{{route('certificates.update')}}" method = "post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="company">Company:</label>
@@ -38,8 +38,18 @@
                     <label for="name">Importance:</label>
                     <input name="importance" id="importance" class="form-control date-picker" data-provide="datepicker"  value="{{ $certificate->importance }}">
                 </div>
+                <div class="form-group">
+                    <label class="d-block" for="name">Image:</label>
+                    <input type="file" name="image" id="image">
+                </div>
+                <div class="form-group">
+                    @if($certificate->image)
+                        <p>Uploaded image:</p>
+                        <img class="img-fluid" src="{{asset('storage/pics/'.$certificate->image)}}">
+                    @endif
+                </div>
                 <input type="hidden" name="id" value = "{{$certificate->id}}">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success mb-2">Submit</button>
             </form>
         </div>
     </div>

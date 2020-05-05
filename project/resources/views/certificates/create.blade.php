@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-sm-6 col-xs-12">
-            <form action="{{route('certificates.store')}}" method = "post">
+            <form action="{{route('certificates.store')}}" method = "post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="company">Company:</label>
@@ -37,6 +37,10 @@
                 <div class="form-group">
                     <label for="name">Importance:</label>
                     <input class="form-control date-picker" data-provide="datepicker" name="importance" id="importance">
+                </div>
+                <div class="form-group">
+                    <label class="d-block" for="name">Image:</label>
+                    <input type="file" name="image" id="image">
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>

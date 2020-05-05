@@ -19,6 +19,7 @@ class CreateCertificatesTable extends Migration
             $table->string('domain');
             $table->string('url');
             $table->date('importance');
+            $table->string('image',255)->nullable();
             $table->timestamps();
         });
     }
